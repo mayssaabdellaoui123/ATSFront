@@ -1,0 +1,24 @@
+<h1>Products List</h1>
+<div style="text-align:center">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of products | paginate: config">
+        <th scope="row">{{item.idproduct}}</th>
+        <td>{{item.productName}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.category}}</td>
+        <td><a [routerLink]="['/product',item.idproduct]">See Details</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+
+</div>
